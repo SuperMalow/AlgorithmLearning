@@ -12,11 +12,11 @@ int q[N];
 
 void quick_sort(int q[], int l, int r)
 {
-    int x = q[l]; //可以设为l r (l+r)/2 也可以随机
-    if (l >= r)   //防止边界出问题
+    if (l >= r) //防止边界出问题
     {
         return;
     }
+    int x = q[l];  //可以设为l r (l+r)/2 也可以随机
     int i = l - 1; //因为后续用了do-while结构，我们是先进行指针+1再进行比较
     int j = r + 1; //所以存在一个边界问题
 
@@ -51,14 +51,14 @@ int main()
 {
     scanf("%d", &n);
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         scanf("%d", &q[i]);
     }
 
     quick_sort(q, 0, n - 1);
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         printf("%d ", q[i]);
     }

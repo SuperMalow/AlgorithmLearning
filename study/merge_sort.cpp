@@ -14,9 +14,11 @@ void merge_sort(int q[], int l, int r)
         return;
     }
     //  先找mid中心点 且是下标的中心点
-    int mid = (l + r) >> 1; // 等价于 (l + r) / 2
+    int mid = l + r >> 1; // 等价于 (l + r) / 2
+
     //  再递归
     merge_sort(q, l, mid), merge_sort(q, mid + 1, r);
+
     //  再归并 合二为一
     int k = 0, i = l, j = mid + 1; // k表示我们的tmp里面有多少个数了
     while (i <= mid && j <= r)
@@ -25,8 +27,11 @@ void merge_sort(int q[], int l, int r)
             tmp[k++] = q[i++];
         }
         else
+        {
             tmp[k++] = q[j++];
-    //上面的循环被打破了 也就是i或者j停下来了
+        }
+    // 上面的循环被打破了 也就是i或者j停下来了
+    // 扫尾
     while (j <= r) // 这里是i到最右边了
     {
         // 把j剩下的元素合并到tmp上面

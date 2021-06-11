@@ -13,11 +13,11 @@ int quick_sort_apply(int l, int r, int k)
     {
         return q[l];
     }
-    // 1. 确定分界点x
+    // 1. 确定分界点x 数组里的值
     int x = q[l + r >> 1];
+
     // 2. 划分边界 l r
     int i = l - 1, j = r + 1;
-
     while (i < j)
     {
         while (q[++i] < x)
@@ -29,6 +29,7 @@ int quick_sort_apply(int l, int r, int k)
             swap(q[i], q[j]);
         }
     }
+
     // 3. 递归
     int sl = j - l + 1;
     if (k <= sl)

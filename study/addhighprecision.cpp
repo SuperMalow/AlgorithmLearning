@@ -28,15 +28,16 @@ vector<int> add(vector<int> &A, vector<int> &B)
     int t = 0;
 
     for (int i = 0; i < A.size(); i++)
-    {
-        t += A[i]; // A的位数大于B的位数
-        if (i < B.size())
+    {                     // 总公式是 t = A[i] + B[i] + t
+        t += A[i];        // A的位数大于B的位数
+        if (i < B.size()) //B的位数还在即加上B[i]
         {
             t += B[i];
         }
         C.push_back(t % 10); // 整除，如果大于即取其个位
         t /= 10;             // 本身还要除以10
     }
+    // A B此时都为0了
     if (t) // 判断A B 前面位数都为0 但是t如果有进位的话就进行储存这个进位
     {
         C.push_back(t);

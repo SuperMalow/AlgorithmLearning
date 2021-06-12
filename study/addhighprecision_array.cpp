@@ -1,60 +1,56 @@
+/*
+        给定两个正整数，计算它们的和。
+        输入格式
+        共两行，每行包含一个整数。
+        输出格式
+        共一行，包含所求的和。
+        数据范围
+        1≤整数长度≤100000
+        输入样例：
+        12
+        23
+        输出样例：
+        35
+*/
 #include <iostream>
-
 using namespace std;
 
 const int N = 100010;
 int A[N], B[N], C[N];
 
-int getarraylen(int *A)
+int add(int A[], int B[], int C[], int cnt)
 {
-    int len = sizeof(A) / sizeof(int);
-    return len;
-}
-int *add(int A[], int B[])
-{
-    int A_len = getarraylen(A);
-    int B_len = getarraylen(B);
-    if (A_len < B_len)
-    {
-        return (B, A);
-    }
     int t = 0;
-    for (int i = 0; i < A_len; i++)
+
+    for (int i = 0; i <= cnt; i++)
     {
-        int j = 0;
-        t += A[i];
-        if (i < B_len)
-        {
-            t += B[i];
-        }
-        C[j] = t % 10;
-        j++;
+        t += A[i] + B[i];
+        C[i] = t % 10;
         t /= 10;
     }
-
     if (t)
     {
-        int C_len = getarraylen(C);
-        C[C_len - 1] = t;
+        C[++cnt] = 1;
     }
-    return C;
+    return cnt;
 }
+
 int main()
 {
     string a, b;
-    cin >> a >> b; // a = "1234567"
-    for (int i = a.size() - 1, j = 0; i >= 0; i--, j++)
-    { // A = "7654321"
-        A[j] = a[i] - '0';
-    }
-    for (int i = b.size() - 1, j = 0; i >= 0; i--, j++)
-    {
-        B[j] = a[i] - '0';
-    }
-    auto C = add(A, B);
-    int C_len = getarraylen(C);
-    for (int i = C_len - 1; i >= 0; i--)
-    {
+    cin >> a >> b;
+
+    int A_cnt = 0, B_cnt = 0;
+    for (int i = a.size() - 1; i >= 0; i--)
+        A[++A_cnt] = a[i] - '0';
+
+    for (int i = b.size() - 1; i >= 0; i--)
+        B[++B_cnt] = b[i] - '0';
+
+    int C_cnt = add(A, B, C, max(A_cnt, B_cnt));
+
+    for (int i = C_cnt; i >= 1; i--)
         cout << C[i];
-    }
+
+    return 0;
 }

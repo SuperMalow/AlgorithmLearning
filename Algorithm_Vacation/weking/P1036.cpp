@@ -10,14 +10,14 @@ int main()
     {
         int res = 0;
         scanf("%d%d%d", &l, &r, &k); // M1
-        if (r - l + 1 >= k && k >= m1 && r - l == m1 && m1 >= 0)
+        if (r - l + 1 >= k && k >= m1 && m1 >= 0)
         {
-            res += k;
+            res += m1;
         }
         scanf("%d%d%d", &l, &r, &k); // M2
-        if (n - (r - l + 1) >= k && m2 >= k && n - (r - l ) == m2 && m2 <= 500)
+        if (n - (r - l + 1) >= k && m2 >= k  && m2 <= 500)
         {
-            res += k;
+            res += m2;
         }
         cout << res << endl;
     }

@@ -110,7 +110,9 @@ int main()
             remove(k + 1);
         }
     }
-    for(int i = r[0]; i != 1; i = r[i]) cout << e[i] << " ";
+    // 从最左边开始 0 1 到1结束
+    for (int i = r[0]; i != 1; i = r[i])
+        cout << e[i] << " ";
     cout << endl;
 
     return 0;

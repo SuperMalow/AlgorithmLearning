@@ -31,7 +31,7 @@
 #include <iostream>
 using namespace std;
 
-// 数据范围1≤M≤100000
+// 数据范围1 ≤ M ≤ 100000
 const int N = 100010;
 
 // head表示头节点
